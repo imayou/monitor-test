@@ -2,8 +2,9 @@
 java metrics + prometheus + grafana
 # grafana dashboard
 12856
-# pushgateway maven pom
+# pushgateway
 ```
+  #pom.xml
   <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-actuator</artifactId>
@@ -17,13 +18,11 @@ java metrics + prometheus + grafana
     <groupId>io.prometheus</groupId>
     <artifactId>simpleclient_pushgateway</artifactId>
   </dependency>
-```
-# pushgateway properties
-```
+  
+  #properties
   spring.application.name=test-push-service
-
   management.metrics.export.prometheus.pushgateway.enabled=true
-  management.metrics.export.prometheus.pushgateway.base-url=http://172.16.0.55:9091
+  management.metrics.export.prometheus.pushgateway.base-url=http://ip:9091
   management.metrics.export.prometheus.pushgateway.job=${spring.application.name}
   management.metrics.export.prometheus.pushgateway.push-rate=10s
 ```
